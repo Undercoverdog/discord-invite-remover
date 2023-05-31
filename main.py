@@ -47,7 +47,8 @@ async def on_invite_create(invite):
         # DM user
         new_invite = await invite.channel.create_invite(max_age=7*24*60*60) # Create 7 day invite
         new_expires_at = new_invite.created_at + timedelta(seconds=invite.max_age) # Time the invite expires
-        await invite.inviter.send(f"Your invite has been deleted since we do not allow permanent invites. Instead use the following code. It expires at `{new_expires_at}\`.")
+        formatted_time = new_expires_at.strftime('%Y-%m-%d %H:%M:%S') # Format time
+        await invite.inviter.send(f"Your invite has been deleted since we do not allow permanent invites. Instead use the following code. It expires at `{formatted_time}`.")
         await invite.inviter.send(f"<{new_invite.url}>")
 
 
