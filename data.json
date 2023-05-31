@@ -1,0 +1,4 @@
+{
+  "token": "your_token_here_Dont_push_mine_or_you_are_fired",
+  "roles": [roleid0, roleid1, roleid2, ...] 
+}
